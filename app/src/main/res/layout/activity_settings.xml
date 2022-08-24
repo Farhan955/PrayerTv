@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/counter_text_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:title="Settings"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="infoClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_info_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="General Info"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="scrollClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_moving_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Scroll up Text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="runningClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_moving_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Running Text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_time" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Prayer time settings"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="reminderClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_access_alarms_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Prayer Reminder"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="datesClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_calendar_month_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Important Dates"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_image_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Banner"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="soundClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/tone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Notification Sound"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="zoneClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/ic_baseline_location_city_24"
+                    android:padding="8dp"
+                    android:src="@drawable/tone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Prayer Zone"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="bannerClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_slideshow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Banner List"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:foreground="?selectableItemBackground"
+                android:onClick="colorClick"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:background="@drawable/rect_settings"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_slideshow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="50dp"
+                    android:text="Color Settings"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/ic_navigate_next"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

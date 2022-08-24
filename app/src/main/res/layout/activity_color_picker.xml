@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ColorPickerActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/counter_text_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:title="Color Settings"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="mName"
+                android:foreground="?selectableItemBackground"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:id="@+id/tv_mosque_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:text="Mosque Name"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <View
+                    android:id="@+id/view_mosque_name"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center"
+                    android:background="@color/color_bookmark" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="#cecece" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:foreground="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="timeClock"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:text="Time Clock"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <View
+                    android:id="@+id/view_time_clock"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center"
+                    android:background="@color/color_bookmark"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="#cecece" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:foreground="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="date"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:text="Date"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <View
+                    android:id="@+id/view_date"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center"
+                    android:background="@color/color_bookmark"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="#cecece" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:foreground="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="hText"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:text="Running text left to right"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <View
+                    android:id="@+id/view_h_text"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center"
+                    android:background="@color/color_bookmark"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="#cecece" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:foreground="?selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="vText"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:text="Running text bottom to top"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <View
+                    android:id="@+id/view_v_text"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center"
+                    android:background="@color/color_bookmark"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="#cecece" />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

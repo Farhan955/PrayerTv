@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable-v24/thumb.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/bordsr.xml" value="0.159" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/circle.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/colored_border.xml" value="0.159" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/default_indicator.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_baseline_moving_24.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_launcher_background.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_navigate_next.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/ic_slideshow.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/indicator_selector.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/rect_settings.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/selected_indicator.xml" value="0.189" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/time_bg.xml" value="0.136" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/drawable/title_bg.xml" value="0.159" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_add_banner.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_add_date.xml" value="0.25885416666666666" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_banner_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_color_picker.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_important_dates.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_info.xml" value="0.25885416666666666" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_peview_image.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_play_video.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_play_video2.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_prayer_zone.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_preview_image.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_reminder.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_running_text.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_scroll_up_text.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_settings.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_sound_list.xml" value="0.25885416666666666" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_my_date.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_slider.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_slider_grid.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/layout_empty_view.xml" value="0.27291666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
