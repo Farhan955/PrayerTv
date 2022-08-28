@@ -94,4 +94,8 @@
     <string name="txtzohor_malay">ZOHOR</string>
     <string name="vibration">Vibration</string>
     <string name="place">Putrajaya</string>
+
+    <array name="zones">
+        <item>PutrajaZone</item>
+    </array>
 </resources>

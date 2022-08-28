@@ -5,32 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/my_featured_image"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:visibility="gone">
 
-    <ImageView
-        android:id="@+id/slider_background"
+
+        <ImageView
+            android:id="@+id/my_featured_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/my_caption_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Caption Title"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="91dp"
+            tools:layout_editor_absoluteY="164dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_video"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_play_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/my_caption_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="The Caption Title"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="26sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/slider_background"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="164dp" />
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

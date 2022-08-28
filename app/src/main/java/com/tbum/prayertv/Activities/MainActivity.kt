@@ -14,6 +14,7 @@ import com.tbum.prayertv.Adapters.SliderPagerAdapter
 import com.tbum.prayertv.Alarms.MyAlarmManager
 import com.tbum.prayertv.Models.MySlider
 import com.tbum.prayertv.R
+import com.tbum.prayertv.Utils.ChangeItem
 import com.tbum.prayertv.Utils.Functions
 import com.tbum.prayertv.Utils.SharedPref
 import com.tbum.prayertv.databinding.ActivityMainBinding
@@ -65,7 +66,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     }
 
-
     var sliderList = ArrayList<MySlider>()
 
     private fun setSlider() {
@@ -83,28 +83,47 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
           list.add(obj)
   */
 
-        val adapter = SliderPagerAdapter(this, sp.getSliderList("mySlider"))
+        var currentPage = binding.slider.currentItem
+
+
+        val adapter = SliderPagerAdapter(this, sp.getSliderList("mySlider"), object : ChangeItem {
+            override fun onItemChange(pos: Int) {
+
+                Toast.makeText(context, "ok", Toast.LENGTH_SHORT).show()
+                binding.slider.setCurrentItem(currentPage++, true)
+
+            }
+        })
+
         binding.slider.adapter = adapter
         binding.myTablayout.setupWithViewPager(binding.slider)
 
-        var currentPage = binding.slider.currentItem
+        binding.slider.offscreenPageLimit = 0
+
+
         val handler = Handler()
 
         val update = Runnable {
+
             if (currentPage === sliderList.size) {
                 currentPage = 0
             }
             binding.slider.setCurrentItem(currentPage++, true)
         }
+        try {
+
+            Timer().schedule(object : TimerTask() {
+                override fun run() {
+                    handler.post(update)
+                }
+            }, 100, 1000)
+
+        } catch (e: Exception) {
+
+        }
 
 
-        Timer().schedule(object : TimerTask() {
-            override fun run() {
-                handler.post(update)
-            }
-        }, 100, 5000)
     }
-
 
     override fun onResume() {
         super.onResume()
@@ -221,7 +240,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding.tvIsha.setTextColor(Color.BLACK)
 
         val i = getIndex(fajar, sunrise, ishraq, zohar, asar, maghrib, isha)
-
+        Toast.makeText(this, "" + i, Toast.LENGTH_SHORT).show()
 
         when (i) {
             1 -> {

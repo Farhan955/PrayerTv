@@ -27,7 +27,7 @@
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_color_picker.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_important_dates.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_info.xml" value="0.25885416666666666" />
-        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_peview_image.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_play_video.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_play_video2.xml" value="0.27291666666666664" />
@@ -40,7 +40,7 @@
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/activity_sound_list.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_my_date.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_slider.xml" value="0.27291666666666664" />
-        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_slider_grid.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/item_slider_grid.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/PrayerTV/app/src/main/res/layout/layout_empty_view.xml" value="0.27291666666666664" />
       </map>
     </option>

@@ -8,8 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.tbum.prayertv.Adapters.BannerImagesAdapter
-import com.tbum.prayertv.Adapters.ImportantDatesAdapter
-import com.tbum.prayertv.Models.MyDate
 import com.tbum.prayertv.Models.MySlider
 import com.tbum.prayertv.Utils.Functions
 import com.tbum.prayertv.Utils.SharedPref
@@ -41,7 +39,9 @@ class BannerListActivity : AppCompatActivity() {
 
     fun ivAdd(view: View) {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "video/*"
+        intent.type = "*/*"
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
+
         startActivityForResult(intent, 123)
 
     }
@@ -53,11 +53,14 @@ class BannerListActivity : AppCompatActivity() {
 
         if (resultCode === RESULT_OK) {
             val uri = data!!.data!!
-            if (uri.toString().contains("image")) {
-                obj = MySlider(uri.toString(), "image", "asfasfa")
+            obj = if (uri.toString().contains("image")) {
+                MySlider(uri.toString(), "image", "asfasfa")
 
             } else if (uri.toString().contains("video")) {
-                obj = MySlider(uri.toString(), "video", "asfasfa")
+                MySlider(uri.toString(), "video", "asfasfa")
+            } else {
+                Toast.makeText(this, "Invalid file", Toast.LENGTH_SHORT).show()
+                return
             }
 
             var list = sp.getSliderList("mySlider")
