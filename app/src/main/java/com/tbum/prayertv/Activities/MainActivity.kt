@@ -3,18 +3,17 @@ package com.tbum.prayertv.Activities
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.provider.MediaStore
-import android.util.Log
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 import com.tbum.prayertv.Adapters.SliderPagerAdapter
 import com.tbum.prayertv.Alarms.MyAlarmManager
-import com.tbum.prayertv.Models.MySlider
 import com.tbum.prayertv.R
-import com.tbum.prayertv.Utils.ChangeItem
 import com.tbum.prayertv.Utils.Functions
 import com.tbum.prayertv.Utils.SharedPref
 import com.tbum.prayertv.databinding.ActivityMainBinding
@@ -25,37 +24,62 @@ import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.*
 
-
+@Suppress("all", "deprecation")
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
-    val context = this
-    lateinit var binding: ActivityMainBinding
-
-    val sp = SharedPref(context)
-
-    var fajar = ""
-    var zohar = ""
-    var asar = ""
-    var maghrib = ""
-    var isha = ""
-    var ishraq = ""
-    var sunrise = ""
-    var date = ""
-    var myAlarmManager: MyAlarmManager? = null
-
+    private val context = this
+    private lateinit var binding: ActivityMainBinding
+    private val sp = SharedPref(context)
+    private var fajar = ""
+    private var zohar = ""
+    private var asar = ""
+    private var maghrib = ""
+    private var isha = ""
+    private var ishraq = ""
+    private var sunrise = ""
+    private var date = ""
+    private lateinit var myAlarmManager: MyAlarmManager
+    private lateinit var adapter: SliderPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-        _init_()
+        initUI()
+        changeListener()
+        automateViewPagerSwiping()
     }
 
-    private fun _init_() {
+    private fun changeListener() {
+        binding.slider.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                if (sp.getSliderList("mySlider")[position].type == "video") {
+                    if (!SliderPagerAdapter.videoView.isPlaying) {
+                        SliderPagerAdapter.videoView.setVideoURI(Uri.parse(sp.getSliderList("mySlider")[position].uri))
+                        SliderPagerAdapter.videoView.start()
+                    }
 
+                } else {
+                    SliderPagerAdapter.videoView.stopPlayback()
+                }
+            }
+
+            override fun onPageSelected(position: Int) {
+
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+
+            }
+        })
+    }
+
+    private fun initUI() {
         myAlarmManager = MyAlarmManager(this@MainActivity)
 //        Functions.checkNotificationPolicy(context)
 //        Functions.checkOverlayPermission(context)
@@ -63,10 +87,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 //          myAlarmManager!!.setAlarm(millis)
 
         binding.tvHorizontal.isSelected = true
-
     }
-
-    var sliderList = ArrayList<MySlider>()
 
     private fun setSlider() {
         /*  val url = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
@@ -85,44 +106,35 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         var currentPage = binding.slider.currentItem
 
-
-        val adapter = SliderPagerAdapter(this, sp.getSliderList("mySlider"), object : ChangeItem {
-            override fun onItemChange(pos: Int) {
-
-                Toast.makeText(context, "ok", Toast.LENGTH_SHORT).show()
-                binding.slider.setCurrentItem(currentPage++, true)
-
-            }
-        })
+        adapter = SliderPagerAdapter(this, sp.getSliderList("mySlider")) {
+            binding.slider.setCurrentItem(currentPage++, true)
+        }
 
         binding.slider.adapter = adapter
         binding.myTablayout.setupWithViewPager(binding.slider)
-
         binding.slider.offscreenPageLimit = 0
 
 
-        val handler = Handler()
-
-        val update = Runnable {
-
-            if (currentPage === sliderList.size) {
-                currentPage = 0
-            }
-            binding.slider.setCurrentItem(currentPage++, true)
-        }
-        try {
-
-            Timer().schedule(object : TimerTask() {
-                override fun run() {
-                    handler.post(update)
-                }
-            }, 100, 1000)
-
-        } catch (e: Exception) {
-
-        }
-
-
+//        val handler = Handler()
+//
+//        val update = Runnable {
+//
+//            if (currentPage === sliderList.size) {
+//                currentPage = 0
+//            }
+//            binding.slider.setCurrentItem(currentPage++, true)
+//        }
+//        try {
+//
+//            Timer().schedule(object : TimerTask() {
+//                override fun run() {
+//                    handler.post(update)
+//                }
+//            }, 100, 1000)
+//
+//        } catch (e: Exception) {
+//
+//        }
     }
 
     override fun onResume() {
@@ -134,26 +146,27 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         setSlider()
         setColors()
-
     }
 
     private fun setColors() {
-
         if (sp.getColor("mName") != -1) {
             binding.tvMosqueName.setTextColor(sp.getColor("mName"))
         }
+
         if (sp.getColor("timeClock") != -1) {
             binding.simpleDigitalClock.setTextColor(sp.getColor("timeClock"))
         }
+
         if (sp.getColor("date") != -1) {
             binding.txtAlamat.setTextColor(sp.getColor("date"))
         }
+
         if (sp.getColor("hText") != -1) {
             binding.tvHorizontal.setTextColor(sp.getColor("hText"))
         }
 
         if (sp.getColor("vText") != -1) {
-            binding.tvVertical!!.setTextColor(sp.getColor("vText"))
+            binding.tvVertical.setTextColor(sp.getColor("vText"))
         }
     }
 
@@ -202,8 +215,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     private fun setData() {
-
-
         binding.tvFajar.text = "$fajar AM"
         binding.tvZohar.text = "$zohar PM"
         binding.tvAsar.text = "$asar PM"
@@ -214,7 +225,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding.txtAlamat.text = date
 
         setCurrentActive()
-
     }
 
     fun ivSettings(view: View) {
@@ -239,10 +249,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding.tvMaghrib.setTextColor(Color.BLACK)
         binding.tvIsha.setTextColor(Color.BLACK)
 
-        val i = getIndex(fajar, sunrise, ishraq, zohar, asar, maghrib, isha)
-        Toast.makeText(this, "" + i, Toast.LENGTH_SHORT).show()
-
-        when (i) {
+        when (getIndex(fajar, sunrise, ishraq, zohar, asar, maghrib, isha)) {
             1 -> {
                 binding.tvFajar.setBackgroundColor(resources.getColor(R.color.color_orange_A400))
                 binding.tvFajar.setTextColor(Color.WHITE)
@@ -273,8 +280,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 binding.tvIsha.setTextColor(Color.WHITE)
             }
         }
-
-        Log.d("_farhanx i= ", i.toString())
 
 /*
         if (isGreater(fajar) && !isGreater(sunrise)) {
@@ -313,18 +318,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
+        binding.animationView.visibility = View.VISIBLE
 
-
-        if (binding.animationView != null) {
-            binding.animationView.visibility = View.VISIBLE
-        }
-        Handler().postDelayed({
-            if (binding.animationView != null) {
-                binding.animationView.visibility = View.GONE
-                getPrayerTime()
-            }
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.animationView.visibility = View.GONE
+            getPrayerTime()
         }, 20000)
-
     }
 
     override fun onStart() {
@@ -337,5 +336,24 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         sp.unregisterPref(context, this)
     }
 
+    private fun automateViewPagerSwiping() {
+        val DELAY_MS: Long = 500
+        val PERIOD_MS: Long = 3000
+        val handler = Handler()
 
+        val update = Runnable {
+            if (binding.slider.currentItem === adapter.count - 1) {
+                binding.slider.currentItem = 0
+            } else {
+                binding.slider.setCurrentItem(binding.slider.currentItem + 1, true)
+            }
+        }
+
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                handler.post(update)
+            }
+        }, DELAY_MS, PERIOD_MS)
+    }
 }
